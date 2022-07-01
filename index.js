@@ -23,7 +23,6 @@ class Product {
         value[0].SKU === data.data[i].sku &&
         value[0].Salesmateid === "Null"
       ) {
-        console.log("postdata");
         try {
           const resid = await Product.postData(data, i);
           await Product.updateId(mysqlConnection, data, resid, i);
@@ -50,7 +49,10 @@ class Product {
           );
         }
       }
+
+
     }
+    process.exit(0);
   }
 
   static updateError(data, i, mysqlConnection, errName) {
